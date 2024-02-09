@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - Setup](./assets/hero.png)
+# ![Controlled Forms in React Lab - Setup](./assets/hero.png)
 
 ## Setup
 
@@ -8,29 +8,23 @@ Open your Terminal application and navigate to your `~/code/ga/labs` directory:
 cd ~/code/ga/labs
 ```
 
-<!-- tktk if starter code exists -->
-
-Fork the [[tktk Repo Name]](https://git.generalassemb.ly/modular-curriculum-all-courses/[tktk Repo Name]) repository.
-
-<!-- tktk if starting from scratch  -->
-
-Make a new repository on [GitHub](https://github.com/) named [tktk Repo Name].
-
-<!-- tktk -->
-
-Clone a copy of your remote repo locally by using the `git clone` command:
+Create a new Vite project for your React app:
 
 ```bash
-git clone https://github.com/<your-username>/[tktk Repo Name].git [tktk Personal GitHub for new labs]
-git clone https://git.generalassemb.ly/<your-username>/[tktk Repo Name].git [tktk GA enterprise GitHub for starter code]
+npm create vite@latest
 ```
 
-> 📚 Note: In the link above, where it says `<your-username>`, you should see the username from your GitHub account.
+You'll be prompted to choose a project name. Let's name it `controlled-forms-lab`. 
 
-Next, `cd` into your new cloned directory, `[tktk Repo Name]`:
+- Select a framework. Use the arrow keys to choose the `React` option and hit `Enter`.
+
+- Select a variant. Again, use the arrow keys to choose `JavaScript` and hit `Enter`.
+
+Navigate to your new project directory and install the necessary dependencies:
 
 ```bash
-cd [tktk Repo Name]
+cd controlled-forms-lab
+npm i
 ```
 
 Open the project's folder in your code editor:
@@ -38,3 +32,56 @@ Open the project's folder in your code editor:
 ```bash
 code .
 ```
+
+### Configuring ESLint
+
+Before we begin, we need to adjust the ESLint configuration. Add the following rules to the `.eslintrc.cjs` file:
+
+```js
+rules: {
+  'react-refresh/only-export-components': [
+    'warn',
+    { allowConstantExport: true },
+  ],
+  'react/prop-types': 'off', // add this line
+  'react/no-unescaped-entities': 'off' // add this line
+},
+```
+
+The first addition prevents warnings if you're not declaring types for your props (which we're not), and the second prevents warnings if you're using contractions within JSX.
+
+### Clear `App.jsx`
+
+Open the `App.jsx` file in the `src` directory and replace the contents of it with the following:
+
+```jsx
+// src/App.jsx
+
+const App = () => {
+
+  return (
+    <h1>Hello world!</h1>
+  );
+}
+
+export default App
+```
+
+### GitHub setup
+
+To add this project to GitHub, initialize a Git repository:
+
+```bash
+git init
+```
+
+Make a new repository on [GitHub](https://github.com/) named controlled-forms-lab. 
+
+Link your local project to your remote GitHub repo:
+
+```bash
+git remote add origin https://github.com/<github-username>/controlled-forms-lab.git
+git push origin main
+```
+
+> 🚨 Do not copy the above command. It will not work. Your GitHub username will replace `<github-username>` (including the `<` and `>`) in the URL above.
