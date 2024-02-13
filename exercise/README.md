@@ -131,7 +131,7 @@ which will hold empty strings for now.
 
 You'll need three event handlers. 
 
-1. `handleInputChange`
+#### 1. `handleInputChange`
 This function will be triggered whenever a user types in an input field.
 
 Inside this function, access the event object to get details like the field name and value.
@@ -141,7 +141,7 @@ Use the spread operator (...) to create a new copy of the newBook object, updati
 Set the updated newBook object back to state using the setNewBook function.
 
 
-2. `handleAddBook`
+#### 2. `handleAddBook`
 This function will be triggered when the user submits the form.
 
 Inside this function, create a copy of the existing books array using the spread operator.
@@ -151,7 +151,7 @@ Add the newBook object (containing the user's input) to this copied array.
 Use the setBooks function to update the state with the new array, effectively adding the book to our collection.
 
 
-3. `handleSubmit`
+#### 3. `handleSubmit`
 This will handle form submission.
 
 Inside this function, prevent the default form submission behavior using `event.preventDefault()`.
