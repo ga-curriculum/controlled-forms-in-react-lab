@@ -88,7 +88,7 @@ input{
 
 ### Exercise 1: Create your component
 
-Create a new component called `Bookshelf.jsx`, and import `useState` at the top of the file:
+Create a new component called `Bookshelf.jsx` and import `useState` at the top of the file:
 
 ```jsx
 import { useState } from 'react';
@@ -107,6 +107,28 @@ Add the following code inside of your return statement:
   </div>
 </div>
 ```
+
+Export the Bookshelf component, then import it into `App.jsx`: 
+
+```jsx
+// src/App.jsx
+
+import './App.css'
+import Bookshelf from './Bookshelf.jsx'
+
+const App = () => {
+  return (
+    <>
+      <h1>My Bookshelf</h1>
+      <Bookshelf />
+    </>
+  );
+}
+
+export default App
+```
+
+The remainder of work in this lab will all take place inside of `Bookshelf.jsx`.
 
 ### Exercise 2: Define the initial state
 
