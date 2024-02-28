@@ -12,13 +12,14 @@ If you get stuck during the lab, we recommend revisiting the lesson materials fi
 
 ## What You'll Build
 
-You're going to create a single component that holds your controlled form as well as bookshelf. You'll need to utilize the `useState` React hook for your form to work effectively. 
+You will create a single component that holds your controlled form and bookshelf. You'll need to utilize the `useState` React hook for your form to work effectively. 
 
 ## Lab exercises
 
 Before getting started, add the following style rules to `index.css`:
 
 First, change the existing style rules for `body` to this:
+
 ```css
 body {
   margin: 0;
@@ -32,6 +33,7 @@ body {
 ```
 
 Then, add these rules above the `@media` rule:
+
 ```css
 form {
   display: flex;
@@ -85,7 +87,6 @@ input{
 }
 ```
 
-
 ### Exercise 1: Create your component
 
 Create a new component called `Bookshelf.jsx` and import `useState` at the top of the file:
@@ -128,7 +129,7 @@ const App = () => {
 export default App
 ```
 
-The remainder of work in this lab will all take place inside of `Bookshelf.jsx`.
+The remainder of the work in this lab will all take place inside of `Bookshelf.jsx`.
 
 ### Exercise 2: Define the initial state
 
@@ -147,51 +148,45 @@ const [books, setBooks] = useState([
 ]);
 ```
 
-You'll also need a second state variable called `newBook`. This will be an object with a `title` key and an `author` key, both of which will hold empty strings for now. 
-
+You'll also need a second state variable called `newBook`. This will be an object with a `title` key and an `author` key, which will hold empty strings for now. 
 
 ### Exercise 3: Create event handlers
 
-For this lab you'll need three event handlers:
+For this lab, you'll need three event handlers:
 
 #### 1. `handleInputChange`
 This function will be triggered whenever a user types in an input field. It should accept an event object as a parameter.
 
 Use the spread operator (...) to create a new copy of the `newBook` object, updating only the relevant property with the new value from the input field.
 
-Update `newBook` state to the copied newBook object using the `setNewBook` setter function.
-
+Update the `newBook` state to the copied newBook object using the `setNewBook` setter function.
 
 #### 2. `handleAddBook`
 This function will be triggered when the user submits the form.
 
-Inside this function, create a copy of the existing books array using the spread operator. Add the `newBook` object (containing the user's input) to this copied array.
+Create a copy of the existing books array inside this function using the spread operator. Add the `newBook` object (containing the user's input) to this copied array.
 
 Use the `setBooks` setter function to update state with the new array - effectively adding the book to our collection.
 
-
 #### 3. `handleSubmit`
-This function will handle form submission. It should accept an event object as a parameter.
+This function will handle the form submission. It should accept an event object as a parameter.
 
 Inside this function, prevent the default form submission behavior using `event.preventDefault()`.
 
-Call the `handleAddBook` function to add the new book to our collection.
+Call the `handleAddBook` function to add a new book to our collection.
 
 Clear the `newBook` state object by setting it back to an empty object, ready for the next addition.
 
-
 ### Exercise 4: Form creation
 
-Use JSX to create a form with sections for "Title" and "Author". Add input fields for each, where users can type in their book details.
+Use JSX to create a form with "Title" and "Author" sections. Add input fields for each, where users can type in their book details.
 
-Make sure to connect these input fields to their corresponding properties in the `newBook` state object using the `value` and `onChange` attributes.
+Connect these input fields to their corresponding properties in the `newBook` state object using the `value` and `onChange` attributes.
 
-Finally, add a submit button to your form. Don't forget to attach your `onSubmit` handler to the form as well! 
-
+Finally, add a submit button to your form. Don't forget to attach your `onSubmit` handler to the form! 
 
 ### Exercise 5: Map through your books
 
 Iterate through the `books` array in your `Bookshelf` component using the `map` function.
 
 For each book, create a "book card" using a `<div>`, and display the book's title and author within the card.
-
