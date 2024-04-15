@@ -10,7 +10,7 @@ In this lab, you'll implement what you've learned about state and controlled for
 
 ## Time to complete
 
-Estimated time to complete core lab exercise: **60 min**
+Estimated time to complete core lab exercise: **90 min**
 
 ## Content
 
@@ -19,7 +19,7 @@ Estimated time to complete core lab exercise: **60 min**
 
 ## Solution code
 
-🏁 [Solution code](https://git.generalassemb.ly/modular-curriculum-all-courses/controlled-forms-solution)
+🏁 [Solution code](https://git.generalassemb.ly/modular-curriculum-all-courses/controlled-forms-in-react-solution)
 
 ## Internal resources
 

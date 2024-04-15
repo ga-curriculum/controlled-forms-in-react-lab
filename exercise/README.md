@@ -2,92 +2,19 @@
 
 ## Introduction
 
-In this lab, you'll implement what you've learned about state and controlled forms in React to create a form that adds book cards to a virtual bookshelf.  
-
-## A quick note before you dive in
-
-Don't hesitate to collaborate with your classmates when working through labs.
-
-If you get stuck during the lab, we recommend revisiting the lesson materials first. They're designed to provide you with the information and examples that will help you complete the exercises.
+In this lab, you'll explore practical applications of React's state management through controlled forms. You'll build a dynamic form that allows users to add entries to a virtual bookshelf, practicing the synchronization of UI and state in React to ensure seamless user interactions.
 
 ## What You'll Build
 
-You will create a single component that holds your controlled form and bookshelf. You'll need to utilize the `useState` React hook for your form to work effectively. 
+You will develop a single component named `BookShelf` that encompasses both the controlled form and the display of the bookshelf. Using the `useState` hook, you will manage the form inputs and list of books, enabling real-time updates to the UI based on user input.
+
+![Solution UI](../assets/solution-ui.png)
+
+By the end of this lab, you'll have a functional application where users can add books to a personalized bookshelf, with each new entry updating the display immediately—no page reloads required!
 
 ## Lab exercises
 
-Before getting started, add the following style rules to `index.css`:
-
-First, change the existing style rules for `body` to this:
-
-```css
-body {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 100vw;
-  min-height: 100vh;
-}
-```
-
-Then, add these rules above the `@media` rule:
-
-```css
-form {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-}
-
-input{
-  padding: 5px;
-
-} 
-
-.bookshelfDiv {
-  padding: 10px;
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.formDiv {
-  width: 60%;
-  border: 1px solid white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.bookCardsDiv {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 90%;
-  margin-top: 20px;
-}
-
-.bookCard {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  border: 1px solid white;
-  padding: 5px;
-  width: 40%;
-  margin: 15px 10px;
-  background-color: rgb(155, 155, 155);
-  color: black;
-}
-```
-
-### Exercise 1: Create your component
+### 1. Create your component
 
 Create a new component called `Bookshelf.jsx` and import `useState` at the top of the file:
 
@@ -95,27 +22,24 @@ Create a new component called `Bookshelf.jsx` and import `useState` at the top o
 import { useState } from 'react';
 ```
 
-Add the following code inside of your return statement:
+Use the following template to set up your `BookShelf` component:
 
 ```jsx
 <div className="bookshelfDiv">
   <div className="formDiv">
     <h3>Add a Book</h3>
-      {/* form will go here */}
+    {/* Form will go here */}
   </div>
-  <div className="bookCardsDiv">
-    {/* Book cards will go here */}
-  </div>
+  <div className="bookCardsDiv">{/* Book cards will display here */}</div>
 </div>
 ```
 
-Export the Bookshelf component, then import it into `App.jsx`: 
+Export `Bookshelf` from this file and import it into `App.jsx`:
 
 ```jsx
 // src/App.jsx
-
-import './App.css'
-import Bookshelf from './Bookshelf.jsx'
+import './App.css';
+import Bookshelf from './Bookshelf.jsx';
 
 const App = () => {
   return (
@@ -124,69 +48,62 @@ const App = () => {
       <Bookshelf />
     </>
   );
-}
+};
 
-export default App
+export default App;
 ```
 
 The remainder of the work in this lab will all take place inside of `Bookshelf.jsx`.
 
-### Exercise 2: Define the initial state
+### 2. Define the initial state
 
-Create a new state variable called `books`. We'll want to populate our bookshelf with some existing data, so add the following array of objects as `books` initial state:
+- Initialize your state in `Bookshelf.jsx`:
+
+  - Create a state variable `books` to store an array of book objects.
+  - Define another state variable `newBook` to handle the inputs for new book additions. This will be an object with a `title` key and an `author` key, which should hold empty strings to start.
+
+Example:
 
 ```jsx
 const [books, setBooks] = useState([
-    {
-      title: 'Fourth Wing',
-      author: 'Rebecca Yarros',
-    },
-    {
-      title: 'The Lion, the Witch and the Wardrobe',
-      author: 'C.S. Lewis',
-    }
+  { title: 'Fourth Wing', author: 'Rebecca Yarros' },
+  { title: 'The Lion, the Witch and the Wardrobe', author: 'C.S. Lewis' },
 ]);
 ```
 
-You'll also need a second state variable called `newBook`. This will be an object with a `title` key and an `author` key, which will hold empty strings for now. 
+### 3. Create event handlers
 
-### Exercise 3: Create event handlers
-
-For this lab, you'll need three event handlers:
+For this lab, you'll need two event handlers:
 
 #### 1. `handleInputChange`
-This function will be triggered whenever a user types in an input field. It should accept an event object as a parameter.
 
-Use the spread operator (...) to create a new copy of the `newBook` object, updating only the relevant property with the new value from the input field.
+**Purpose:** This function updates the form's state as the user types into the input fields.
 
-Update the `newBook` state to the copied newBook object using the `setNewBook` setter function.
+**Instructions:**
+- Create a function named `handleInputChange` that will be triggered each time the user types in an input field.
+- The function should take an event object as its argument. Use this event to access the `name` of the input field and the value the user has typed.
+- Construct a new version of the `newBook` object that includes the updated fields. Make sure you maintain the values of other fields in `newBook` that aren't currently being updated. (Hint: Use the spread operator `...` to create a new copy of the `newBook` object)
+- Use the  `setNewBook` setter function to update the state of `newBook` with this new object to reflect the changes in your UI.
 
-#### 2. `handleAddBook`
-This function will be triggered when the user submits the form.
+#### 2. `handleSubmit`
 
-Create a copy of the existing books array inside this function using the spread operator. Add the `newBook` object (containing the user's input) to this copied array.
+**Purpose:** This function manages the submission of the form, adding a new book to the list and resetting the input fields.
 
-Use the `setBooks` setter function to update state with the new array - effectively adding the book to our collection.
+**Instructions:**
+- Create a function named `handleSubmit` that will execute when the form is submitted.
+- The function should also take an event object as its argument. Begin the function by stopping the default form submission action using `event.preventDefault()`.
+- Use the `setBooks` setter function to update the `books` array state with this new list to include the newly added book. You'll need to copy the current list of books and add the new book details from `newBook` to this list. (Hint: Use the spread operator `...`)
+- Reset the `newBook` state to its initial empty values to clear the form fields, preparing them for the next entry.
 
-#### 3. `handleSubmit`
-This function will handle the form submission. It should accept an event object as a parameter.
+### 4. Form creation
 
-Inside this function, prevent the default form submission behavior using `event.preventDefault()`.
+- Use JSX to create a form within your `BookShelf` component. The form should include sections for "Title" and "Author".
+- Add input fields for both "Title" and "Author". These inputs will allow users to enter the details for the book they want to add to the shelf.
+- Ensure each input field is connected to the corresponding property in the `newBook` state object. Use the `value` attribute for displaying the current state and the `onChange` attribute to update the state as the user types.
+- Include a submit button in the form. Attach your `handleSubmit` event handler to the form's `onSubmit` attribute to handle the form submission.
 
-Call the `handleAddBook` function to add a new book to our collection.
+### 5. Map through your books
 
-Clear the `newBook` state object by setting it back to an empty object, ready for the next addition.
-
-### Exercise 4: Form creation
-
-Use JSX to create a form with "Title" and "Author" sections. Add input fields for each, where users can type in their book details.
-
-Connect these input fields to their corresponding properties in the `newBook` state object using the `value` and `onChange` attributes.
-
-Finally, add a submit button to your form. Don't forget to attach your `onSubmit` handler to the form! 
-
-### Exercise 5: Map through your books
-
-Iterate through the `books` array in your `Bookshelf` component using the `map` function.
-
-For each book, create a "book card" using a `<div>`, and display the book's title and author within the card.
+- Within the `BookShelf` component, use the `map` function to iterate over the `books` array. This array contains the list of books added by the user.
+- For each book in the array, create a "book card". Use a `<div>` to wrap the display of each book's title and author.
+- Ensure each book card is distinct and clearly displays the title and author of the book.
