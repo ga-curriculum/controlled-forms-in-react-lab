@@ -1,8 +1,18 @@
 # ![Controlled Forms in React Lab](./assets/tktk-hero.png)
 
+Welcome to Reactville, a constantly evolving virtual metropolis. Let's build this digital town together, one component at a time.
+
+![Reactville Banner](./assets/reactville.png)
+
 ## About
 
-In this lab, you'll implement what you've learned about state and controlled forms in React to create a form that adds book cards to a virtual bookshelf.
+The local library is adding a feature to their website where users can add their favorite books to a virtual bookshelf. You're going to help built the front end UI to make it happen!
+
+You will develop a single component named `BookShelf` that contains both the controlled form and the display of the bookshelf. Using the `useState` hook, you will manage the form inputs and list of books, enabling real-time updates to the UI based on user input.
+
+![Solution UI](./assets/solution-ui.png)
+
+By the end of this lab, you'll have a functional application where users can add books to a personalized bookshelf, with each new entry updating the display immediately—no page reloads required!
 
 ## Prerequisites
 
@@ -19,7 +29,7 @@ Estimated time to complete core lab exercise: **90 min**
 
 ## Solution code
 
-🏁 [Solution code](https://git.generalassemb.ly/modular-curriculum-all-courses/controlled-forms-in-react-solution)
+🏁 [Solution code](https://git.generalassemb.ly/modular-curriculum-all-courses/controlled-forms-in-react-lab-solution)
 
 ## Internal resources
 

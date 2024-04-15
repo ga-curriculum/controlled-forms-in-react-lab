@@ -6,7 +6,9 @@ In this lab, you'll explore practical applications of React's state management t
 
 ## What You'll Build
 
-You will develop a single component named `BookShelf` that encompasses both the controlled form and the display of the bookshelf. Using the `useState` hook, you will manage the form inputs and list of books, enabling real-time updates to the UI based on user input.
+The local library is adding a feature to their website where users can add their favorite books to a virtual bookshelf. 
+
+You will develop a single component named `BookShelf` that contains both the controlled form and the display of the bookshelf. Using the `useState` hook, you will manage the form inputs and list of books, enabling real-time updates to the UI based on user input.
 
 ![Solution UI](../assets/solution-ui.png)
 
