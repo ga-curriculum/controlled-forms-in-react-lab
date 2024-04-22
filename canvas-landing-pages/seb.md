@@ -1,4 +1,4 @@
-# ![Controlled Forms in React](./assets/hero.png)
+# ![Controlled Forms in React](../assets/hero.png)
 
 Welcome to Reactville, a constantly evolving virtual metropolis. Let's build this digital town together, one component at a time.
 
