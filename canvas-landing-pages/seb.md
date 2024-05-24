@@ -14,9 +14,6 @@ You will develop a single component named `BookShelf` that contains both the con
 
 By the end of this lab, you'll have a functional application where users can add books to a personalized bookshelf, with each new entry updating the display immediately—no page reloads required!
 
-## Time to complete
-
-Estimated time to complete core lab exercise: **90 min**
 
 ## Content
 
