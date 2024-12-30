@@ -1,12 +1,15 @@
-# ![Controlled Forms in React](../assets/hero.png)
+<h1>
+  <span class="prefix"></span>
+  <span class="headline">Controlled Forms in React Lab</span>
+</h1>
+
+## About
 
 Welcome to Reactville, a constantly evolving virtual metropolis. Let's build this digital town together, one component at a time.
 
 ![Reactville Banner](../assets/reactville.png)
 
-## About
-
-The local library is adding a feature to their website where users can add their favorite books to a virtual bookshelf. You're going to help built the front end UI to make it happen!
+The local library is adding a feature to its website where users can add their favorite books to a virtual bookshelf. In this lab, you will help build the front-end UI to make it happen!
 
 You will develop a single component named `BookShelf` that contains both the controlled form and the display of the bookshelf. Using the `useState` hook, you will manage the form inputs and list of books, enabling real-time updates to the UI based on user input.
 
